@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --surface: rgba(255, 255, 255, 0.75);
+  /* cards/nav surfaces */
+  --border: rgba(226, 232, 240, 1);
+  /* slate-200 */
+  --muted-foreground: #475569;
+  /* slate-600 */
+  --hover-surface: rgba(0, 0, 0, 0.06);
+  /* subtle hover overlay (light) */
+  /* Subtle, high-contrast-friendly gradient for light mode */
+  --background-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 35%, #ecfeff 70%, #e6fffb 100%);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark mode base colors */
+    --background: #0b0f17;
+    /* near-black with a hint of blue for depth */
+    --foreground: #e5e7eb;
+    /* slate-200 */
+    --surface: rgba(2, 6, 23, 0.75);
+    /* slate-950 with alpha */
+    --border: rgba(30, 41, 59, 1);
+    /* slate-800 */
+    --muted-foreground: #cbd5e1;
+    /* slate-300 */
+    --hover-surface: rgba(255, 255, 255, 0.08);
+    --background-gradient: none;
+    color-scheme: dark;
+  }
+}
+
+/* Force theme via class (for next-themes) */
+.light {
+  --background: #ffffff;
+  --foreground: #171717;
+  --surface: rgba(255, 255, 255, 0.75);
+  --border: rgba(226, 232, 240, 1);
+  --muted-foreground: #475569;
+  --hover-surface: rgba(0, 0, 0, 0.06);
+  --background-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 35%, #ecfeff 70%, #e6fffb 100%);
+  color-scheme: light;
+}
+
+.dark {
+  --background: #0b0f17;
+  --foreground: #e5e7eb;
+  --surface: rgba(2, 6, 23, 0.75);
+  --border: rgba(30, 41, 59, 1);
+  --muted-foreground: #cbd5e1;
+  --hover-surface: rgba(255, 255, 255, 0.08);
+  --background-gradient: none;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--background);
+  background-image: var(--background-gradient);
+  background-attachment: fixed;
+  background-size: cover;
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+}
+
+/* Custom animations */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom utility classes */
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+}
