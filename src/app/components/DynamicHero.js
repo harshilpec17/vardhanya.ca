@@ -5,6 +5,7 @@ import { BentoGrid, BentoGridItem } from "./ui/bento-grid";
 import { LampDemo } from "./ui/lamp";
 import { items } from "./utils/bentoItems";
 import AppointmentBooking from "./AppointmentBooking";
+import Link from "next/link";
 
 const DynamicHero = () => {
   // Provided pairs: Headline + Subheadline
@@ -54,11 +55,13 @@ const DynamicHero = () => {
                 />
 
                 <div className="mt-5 md:mt-8 lg:mt-10 flex flex-col sm:flex-row gap-4">
-                  <button className="rounded-lg bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-3 text-slate-900 font-semibold shadow-lg shadow-emerald-500/20 transition-all hover:scale-[1.02] hover:shadow-emerald-500/30">
-                    Start a Project
-                  </button>
+                  <Link href="/#appointment">
+                    <button className="rounded-lg bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-3 text-slate-900 font-semibold shadow-lg shadow-emerald-500/20 transition-all hover:scale-[1.02] hover:shadow-emerald-500/30">
+                      Start a Project
+                    </button>
+                  </Link>
                   <button className="rounded-lg border px-6 py-3 transition-colors border-[color:var(--border)] bg-[color:var(--surface)] text-[color:var(--foreground)]/80 hover:opacity-100 hover:bg-[color:var(--hover-surface)]">
-                    View Work
+                    Services
                   </button>
                 </div>
               </div>
