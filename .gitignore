@@ -4,10 +4,12 @@
 ### NextJS ###
 # dependencies
 /node_modules
-/package-lock.json
-/pnpm-lock.yaml
 /.pnp
 .pnp.js
+/node_modules/.prisma/client
+
+package-lock.json
+package.json
 
 # testing
 /coverage
@@ -31,12 +33,22 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
 
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+# next-env.d.ts (keep this tracked; do not ignore)
 
 # End of https://www.toptal.com/developers/gitignore/api/nextjs
+
+# Generated code (ignore if reproducible via scripts)
+# Use the one that matches your layout
+/src/app/generated/
+# or (if not using /src)
+/app/generated/
+# If you specifically generate Prisma here:
+# /src/app/generated/prisma
+# /app/generated/prisma
