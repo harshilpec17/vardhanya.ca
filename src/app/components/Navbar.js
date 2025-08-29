@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { IconSun, IconMoon, IconDeviceDesktop } from "@tabler/icons-react";
 
-const Navbar = () => {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -192,6 +192,4 @@ const Navbar = () => {
       />
     </nav>
   );
-};
-
-export default Navbar;
+}
