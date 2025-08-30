@@ -6,6 +6,7 @@ import { format, set } from "date-fns";
 import { toZonedTime, fromZonedTime } from "date-fns-tz";
 import { cn } from "@/lib/utils";
 
+
 // CONTRACT
 // Inputs: User fills firstName, lastName, email, mobile, preferredContact, date, timeSlot, additionalNotes, timezone
 // Output: Calls POST /api/appointments with payload { ...fields, startAtUTC }
@@ -103,8 +104,14 @@ export default function AppointmentBooking({ className }: { className?: string }
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    ...values,
-                    startAtUTC: approximateUTC.toISOString(),
+                   firstName: values.firstName,
+                    lastName: values.lastName,
+                    email: values.email,
+                    mobile: values.mobile,
+                    timezone: values.timezone,
+                    date: values.date,
+                    timeslot: values.timeSlot,         // API expects 'timeslot'
+                    notes: values.additionalNotes ?? "" // API expects 'notes'
                 }),
             });
 

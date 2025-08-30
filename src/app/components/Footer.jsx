@@ -51,7 +51,9 @@ const Footer = () => {
               <li className="flex items-start gap-2">
                 <IconMapPin size={18} className="mt-0.5 text-emerald-400" />
                 <span className="text-[color:var(--foreground)]/85">
-                  Ahmedabad, Gujarat, India
+                  501 Krishna Beacon,
+                  <br />
+                  Gandhinagar, Gujarat, India
                 </span>
               </li>
               <li className="flex items-center gap-2">
@@ -61,7 +63,7 @@ const Footer = () => {
                   className="hover:text-emerald-400 transition-colors"
                   title="Call us"
                 >
-                  +91 99999 99999
+                  +1 416-708-2290 / +91 9313650590
                 </a>
               </li>
               <li className="flex items-center gap-2">
@@ -71,7 +73,7 @@ const Footer = () => {
                   className="hover:text-emerald-400 transition-colors"
                   title="Email us"
                 >
-                  hello@vardhanya.ca
+                  info@vardhanya.ca
                 </a>
               </li>
             </ul>
