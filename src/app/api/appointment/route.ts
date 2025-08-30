@@ -13,9 +13,9 @@ export async function POST(req: Request) {
     const timezone = body.timezone;
     const date = body.date;
     const timeslot = body.timeslot ?? body.timeSlot;
-    const notes = typeof (body.notes ?? body.additionalNotes) === "string" ? (body.notes ?? body.additionalNotes) : "";
+  const notes = typeof (body.notes ?? body.additionalNotes) === "string" ? (body.notes ?? body.additionalNotes) : "";
 
-    // Required: firstName, lastName, email, mobile, timezone, date, timeslot
+  // Required: firstName, lastName, email, mobile, timezone, date, timeslot
     const missing = [
       ["firstName", firstName],
       ["lastName", lastName],
@@ -23,7 +23,6 @@ export async function POST(req: Request) {
   ["mobile", mobileRaw],
       ["timezone", timezone],
       ["date", date],
-      ["notes", notes],
       ["timeslot", timeslot],
     ].filter(([, v]) => typeof v !== "string" || v.trim() === "");
 
@@ -34,17 +33,30 @@ export async function POST(req: Request) {
       );
     }
 
-    const mobile = parseInt(String(mobileRaw), 10);
-    if (Number.isNaN(mobile)) {
+    // Validate mobile as digits-only string first
+    const mobileStr = String(mobileRaw).trim();
+    if (!/^\d+$/.test(mobileStr)) {
+      return NextResponse.json({ error: "Invalid mobile number format. Use digits only." }, { status: 400 });
+    }
+    // Current DB column is Int (32-bit). Many 10+ digit numbers exceed 2,147,483,647 and will fail.
+    // Surface a clear error until we migrate the column to text.
+    const mobileNum = Number(mobileStr);
+    if (!Number.isFinite(mobileNum)) {
       return NextResponse.json({ error: "Invalid mobile number" }, { status: 400 });
     }
+    if (mobileNum > 2147483647) {
+      return NextResponse.json(
+        { error: "Phone number is too long for the current system. We will fix this shortly—please enter a shorter local number for now." },
+        { status: 422 }
+      );
+    }
 
-    const created = await prisma.appoitnement.create({
+  const created = await prisma.appoitnement.create({
       data: {
         firstName,
         lastName,
         email,
-        mobile,
+    mobile: mobileNum,
         timezone,
         date,
         timeslot,
