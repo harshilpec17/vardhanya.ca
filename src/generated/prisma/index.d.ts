@@ -870,12 +870,10 @@ export namespace Prisma {
 
   export type AppoitnementAvgAggregateOutputType = {
     id: number | null
-    mobile: number | null
   }
 
   export type AppoitnementSumAggregateOutputType = {
     id: number | null
-    mobile: number | null
   }
 
   export type AppoitnementMinAggregateOutputType = {
@@ -883,7 +881,7 @@ export namespace Prisma {
     firstName: string | null
     lastName: string | null
     email: string | null
-    mobile: number | null
+    mobile: string | null
     timezone: string | null
     notes: string | null
     date: string | null
@@ -895,7 +893,7 @@ export namespace Prisma {
     firstName: string | null
     lastName: string | null
     email: string | null
-    mobile: number | null
+    mobile: string | null
     timezone: string | null
     notes: string | null
     date: string | null
@@ -918,12 +916,10 @@ export namespace Prisma {
 
   export type AppoitnementAvgAggregateInputType = {
     id?: true
-    mobile?: true
   }
 
   export type AppoitnementSumAggregateInputType = {
     id?: true
-    mobile?: true
   }
 
   export type AppoitnementMinAggregateInputType = {
@@ -1054,7 +1050,7 @@ export namespace Prisma {
     firstName: string
     lastName: string
     email: string
-    mobile: number
+    mobile: string
     timezone: string
     notes: string
     date: string
@@ -1138,7 +1134,7 @@ export namespace Prisma {
       firstName: string
       lastName: string
       email: string
-      mobile: number
+      mobile: string
       timezone: string
       notes: string
       date: string
@@ -1570,7 +1566,7 @@ export namespace Prisma {
     readonly firstName: FieldRef<"Appoitnement", 'String'>
     readonly lastName: FieldRef<"Appoitnement", 'String'>
     readonly email: FieldRef<"Appoitnement", 'String'>
-    readonly mobile: FieldRef<"Appoitnement", 'Int'>
+    readonly mobile: FieldRef<"Appoitnement", 'String'>
     readonly timezone: FieldRef<"Appoitnement", 'String'>
     readonly notes: FieldRef<"Appoitnement", 'String'>
     readonly date: FieldRef<"Appoitnement", 'String'>
@@ -2044,7 +2040,7 @@ export namespace Prisma {
     firstName?: StringFilter<"Appoitnement"> | string
     lastName?: StringFilter<"Appoitnement"> | string
     email?: StringFilter<"Appoitnement"> | string
-    mobile?: IntFilter<"Appoitnement"> | number
+    mobile?: StringFilter<"Appoitnement"> | string
     timezone?: StringFilter<"Appoitnement"> | string
     notes?: StringFilter<"Appoitnement"> | string
     date?: StringFilter<"Appoitnement"> | string
@@ -2071,7 +2067,7 @@ export namespace Prisma {
     firstName?: StringFilter<"Appoitnement"> | string
     lastName?: StringFilter<"Appoitnement"> | string
     email?: StringFilter<"Appoitnement"> | string
-    mobile?: IntFilter<"Appoitnement"> | number
+    mobile?: StringFilter<"Appoitnement"> | string
     timezone?: StringFilter<"Appoitnement"> | string
     notes?: StringFilter<"Appoitnement"> | string
     date?: StringFilter<"Appoitnement"> | string
@@ -2103,7 +2099,7 @@ export namespace Prisma {
     firstName?: StringWithAggregatesFilter<"Appoitnement"> | string
     lastName?: StringWithAggregatesFilter<"Appoitnement"> | string
     email?: StringWithAggregatesFilter<"Appoitnement"> | string
-    mobile?: IntWithAggregatesFilter<"Appoitnement"> | number
+    mobile?: StringWithAggregatesFilter<"Appoitnement"> | string
     timezone?: StringWithAggregatesFilter<"Appoitnement"> | string
     notes?: StringWithAggregatesFilter<"Appoitnement"> | string
     date?: StringWithAggregatesFilter<"Appoitnement"> | string
@@ -2114,7 +2110,7 @@ export namespace Prisma {
     firstName: string
     lastName: string
     email: string
-    mobile: number
+    mobile: string
     timezone: string
     notes: string
     date: string
@@ -2126,7 +2122,7 @@ export namespace Prisma {
     firstName: string
     lastName: string
     email: string
-    mobile: number
+    mobile: string
     timezone: string
     notes: string
     date: string
@@ -2137,7 +2133,7 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    mobile?: IntFieldUpdateOperationsInput | number
+    mobile?: StringFieldUpdateOperationsInput | string
     timezone?: StringFieldUpdateOperationsInput | string
     notes?: StringFieldUpdateOperationsInput | string
     date?: StringFieldUpdateOperationsInput | string
@@ -2149,7 +2145,7 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    mobile?: IntFieldUpdateOperationsInput | number
+    mobile?: StringFieldUpdateOperationsInput | string
     timezone?: StringFieldUpdateOperationsInput | string
     notes?: StringFieldUpdateOperationsInput | string
     date?: StringFieldUpdateOperationsInput | string
@@ -2161,7 +2157,7 @@ export namespace Prisma {
     firstName: string
     lastName: string
     email: string
-    mobile: number
+    mobile: string
     timezone: string
     notes: string
     date: string
@@ -2172,7 +2168,7 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    mobile?: IntFieldUpdateOperationsInput | number
+    mobile?: StringFieldUpdateOperationsInput | string
     timezone?: StringFieldUpdateOperationsInput | string
     notes?: StringFieldUpdateOperationsInput | string
     date?: StringFieldUpdateOperationsInput | string
@@ -2184,7 +2180,7 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
-    mobile?: IntFieldUpdateOperationsInput | number
+    mobile?: StringFieldUpdateOperationsInput | string
     timezone?: StringFieldUpdateOperationsInput | string
     notes?: StringFieldUpdateOperationsInput | string
     date?: StringFieldUpdateOperationsInput | string
@@ -2231,7 +2227,6 @@ export namespace Prisma {
 
   export type AppoitnementAvgOrderByAggregateInput = {
     id?: SortOrder
-    mobile?: SortOrder
   }
 
   export type AppoitnementMaxOrderByAggregateInput = {
@@ -2260,7 +2255,6 @@ export namespace Prisma {
 
   export type AppoitnementSumOrderByAggregateInput = {
     id?: SortOrder
-    mobile?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {

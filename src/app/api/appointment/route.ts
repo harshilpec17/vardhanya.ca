@@ -9,7 +9,7 @@ export async function POST(req: Request) {
     const firstName = body.firstName;
     const lastName = body.lastName;
     const email = body.email;
-  const mobileRaw = body.mobile;
+    const mobile = body.mobile;
     const timezone = body.timezone;
     const date = body.date;
     const timeslot = body.timeslot ?? body.timeSlot;
@@ -20,7 +20,7 @@ export async function POST(req: Request) {
       ["firstName", firstName],
       ["lastName", lastName],
       ["email", email],
-  ["mobile", mobileRaw],
+      ["mobile", mobile],
       ["timezone", timezone],
       ["date", date],
       ["timeslot", timeslot],
@@ -34,7 +34,7 @@ export async function POST(req: Request) {
     }
 
     // Validate mobile as digits-only string first
-    const mobileStr = String(mobileRaw).trim();
+    const mobileStr = String(mobile).trim();
     if (!/^\d+$/.test(mobileStr)) {
       return NextResponse.json({ error: "Invalid mobile number format. Use digits only." }, { status: 400 });
     }
@@ -44,9 +44,9 @@ export async function POST(req: Request) {
     if (!Number.isFinite(mobileNum)) {
       return NextResponse.json({ error: "Invalid mobile number" }, { status: 400 });
     }
-    if (mobileNum > 2147483647) {
+    if (mobileNum > 21474836470) {
       return NextResponse.json(
-        { error: "Phone number is too long for the current system. We will fix this shortly—please enter a shorter local number for now." },
+        { error: "Phone number is not valid avoid the browser autofill" },
         { status: 422 }
       );
     }
@@ -56,7 +56,7 @@ export async function POST(req: Request) {
         firstName,
         lastName,
         email,
-    mobile: mobileNum,
+        mobile,
         timezone,
         date,
         timeslot,
