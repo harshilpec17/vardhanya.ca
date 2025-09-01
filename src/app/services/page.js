@@ -132,8 +132,8 @@ export default function Services() {
     setOpenId((prev) => (prev === id ? null : id));
   };
   return (
-    <div className="relative min-h-[90vh] pt-28 overflow-hidden bg-gradient-to-tr from-black via-emerald-900/30 to-black">
-      <section className="relative overflow-hidden bg-gradient-to-tr from-black via-emerald-900/30 to-black border-b border-[color:var(--border)]">
+    <div className="relative min-h-[90vh] overflow-hidden bg-gradient-to-tr from-black via-emerald-900/30 to-black">
+      <section className="relative pt-16 overflow-hidden bg-gradient-to-tr from-black via-emerald-900/30 to-black border-b border-[color:var(--border)]">
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-14 sm:py-20">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 shadow-sm border-[color:var(--border)] bg-[color:var(--surface)] text-[color:var(--foreground)]/80">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />

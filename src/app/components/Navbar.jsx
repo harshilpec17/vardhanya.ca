@@ -57,7 +57,7 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link
@@ -177,18 +177,6 @@ export default function Navbar() {
           >
             Book Appointment
           </Link>
-
-          {/* Mobile theme toggle */}
-          {/* <button
-            type="button"
-            onClick={() => { cycleTheme(); setIsOpen(false); }}
-            aria-label="Toggle color theme"
-            className="mt-2 inline-flex items-center gap-2 rounded-md border px-3 py-2 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 border-[color:var(--border)] bg-[color:var(--surface)] text-[color:var(--foreground)] opacity-80 hover:opacity-100 hover:bg-[color:var(--hover-surface)]"
-            title={`Theme: ${theme ?? 'system'}`}
-          >
-            <ThemeIcon />
-            <span className="text-sm">Theme: {theme ?? 'system'}</span>
-          </button> */}
         </div>
       </div>
       <div

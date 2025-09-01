@@ -137,7 +137,7 @@ export default function AppointmentBooking({ className }: { className?: string }
     return (
         <section className={cn("w-full", className)}>
             <div className="relative z-10 mx-auto w-full max-w-3xl rounded-xl border border-[color:var(--border)] bg-[color:var(--surface)] backdrop-blur-md shadow-sm">
-                <div className="border-b border-[color:var(--border)] p-6">
+                <div className="border-b border-[color:var(--border)] p-6 bg-cyan-950 rounded-t-xl">
                     <h2 className="text-xl md:text-2xl font-semibold text-[color:var(--foreground)]">Book a Free Consultation</h2>
                     <p className="mt-1 text-sm text-[color:var(--muted-foreground)]">Pick a date and time that works for you. Well confirm by email.</p>
                 </div>
