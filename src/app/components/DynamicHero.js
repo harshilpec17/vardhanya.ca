@@ -97,7 +97,7 @@ const DynamicHero = () => {
           <BentoGrid className="max-w-4xl mx-auto px-6 md:px-0">
             {items.map((item, i) => (
               <BentoGridItem
-                key={i}
+                key={item.title}
                 title={item.title}
                 description={item.description}
                 header={item.header}

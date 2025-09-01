@@ -1,9 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Skeleton = ({ src, alt = "Loading...", className }) =>
   src ? (
     <div className="relative w-full md:aspect-square aspect-[16/9] overflow-hidden rounded-xl cursor-pointer">
-      <Image src={src} alt={alt} fill className={className} />
+      <Link href="/services">
+        <Image src={src} alt={alt} fill className={className} />
+      </Link>
     </div>
   ) : (
     <div className="w-full aspect-[16/9] rounded-xl bg-neutral-200 dark:bg-neutral-800" />

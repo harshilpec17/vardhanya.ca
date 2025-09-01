@@ -45,7 +45,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 py-4 w-full z-50 transition-colors duration-300 border-b ${
+      className={`fixed top-0 py-3 w-full z-50 transition-colors duration-300 border-b ${
         scrolled
           ? "backdrop-blur-xl shadow-lg bg-[color:var(--surface)] border-[color:var(--border)]"
           : "bg-transparent border-transparent"
@@ -54,7 +54,7 @@ export default function Navbar() {
       {/* Scroll progress bar */}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link
@@ -66,7 +66,7 @@ export default function Navbar() {
                 alt="Vardhanya.ca"
                 width={2500}
                 height={80}
-                className="bg-transparent h-28 w-auto select-none"
+                className="bg-transparent h-12 w-auto select-none"
               />
             </Link>
           </div>
@@ -82,7 +82,7 @@ export default function Navbar() {
                 <span className="absolute left-0 -bottom-0.5 h-[2px] w-0 bg-gradient-to-r from-emerald-400 to-cyan-400 transition-all duration-300 group-hover:w-full" />
               </Link>
               <Link
-                href="/#services"
+                href="/services"
                 className="relative px-2 py-2 text-sm font-medium transition-colors group text-[color:var(--foreground)] opacity-80 hover:opacity-100"
               >
                 <span>Services</span>
