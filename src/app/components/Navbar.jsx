@@ -5,18 +5,20 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { IconSun, IconMoon, IconDeviceDesktop } from "@tabler/icons-react";
+// import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
   const { theme, setTheme, systemTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  // const pathname = usePathname();
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY || 0;
-      setScrolled(y > 8);
+      setScrollY(y);
       const doc = document.documentElement;
       const total = doc.scrollHeight - doc.clientHeight || 1;
       setProgress(Math.min(100, Math.max(0, (y / total) * 100)));
@@ -43,16 +45,17 @@ export default function Navbar() {
   //   return current === 'dark' ? <IconMoon size={18} /> : <IconSun size={18} />;
   // };
 
+  // Keep navbar transparent at the very top on every route; turn solid after small scroll
+  const showSolid = scrollY > 8;
+
   return (
     <nav
       className={`fixed top-0 py-3 w-full z-50 transition-colors duration-300 border-b ${
-        scrolled
+        showSolid
           ? "backdrop-blur-xl shadow-lg bg-[color:var(--surface)] border-[color:var(--border)]"
           : "bg-transparent border-transparent"
       }`}
     >
-      {/* Scroll progress bar */}
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -66,7 +69,7 @@ export default function Navbar() {
                 alt="Vardhanya.ca"
                 width={2500}
                 height={80}
-                className="bg-transparent h-12 w-auto select-none"
+                className="bg-transparent h-36 w-auto select-none"
               />
             </Link>
           </div>
@@ -76,21 +79,21 @@ export default function Navbar() {
             <div className="ml-10 flex items-center space-x-4">
               <Link
                 href="/"
-                className="relative px-2 py-2 text-sm font-medium transition-colors group text-[color:var(--foreground)] opacity-80 hover:opacity-100"
+                className="relative px-2 py-2 text-md font-medium transition-colors group text-[color:var(--foreground)] opacity-80 hover:opacity-100"
               >
                 <span>Home</span>
                 <span className="absolute left-0 -bottom-0.5 h-[2px] w-0 bg-gradient-to-r from-emerald-400 to-cyan-400 transition-all duration-300 group-hover:w-full" />
               </Link>
               <Link
                 href="/services"
-                className="relative px-2 py-2 text-sm font-medium transition-colors group text-[color:var(--foreground)] opacity-80 hover:opacity-100"
+                className="relative px-2 py-2 text-md font-medium transition-colors group text-[color:var(--foreground)] opacity-80 hover:opacity-100"
               >
                 <span>Services</span>
                 <span className="absolute left-0 -bottom-0.5 h-[2px] w-0 bg-gradient-to-r from-emerald-400 to-cyan-400 transition-all duration-300 group-hover:w-full" />
               </Link>
               <Link
                 href="/#appointment"
-                className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-900 px-4 py-2 rounded-md text-sm font-semibold transition-all shadow-md hover:shadow-emerald-500/20 hover:scale-[1.02]"
+                className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-900 px-4 py-2 rounded-md text-md font-semibold transition-all shadow-md hover:shadow-emerald-500/20 hover:scale-[1.02]"
               >
                 Book Appointment
               </Link>
@@ -143,10 +146,15 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-
       {/* Mobile menu */}
       <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 backdrop-blur-xl shadow-2xl border-t bg-[color:var(--surface)] border-[color:var(--border)]">
+        <div
+          className={`px-2 pt-2 pb-3 space-y-1 sm:px-3 backdrop-blur-xl border-t transition-colors duration-300 ${
+            showSolid
+              ? "shadow-2xl bg-[color:var(--surface)] border-[color:var(--border)]"
+              : "shadow-none bg-transparent border-transparent"
+          }`}
+        >
           <Link
             href="/"
             className="block px-3 py-2 text-base font-medium text-[color:var(--foreground)] opacity-80 hover:opacity-100"
@@ -155,7 +163,7 @@ export default function Navbar() {
             Home
           </Link>
           <Link
-            href="/#services"
+            href="/services"
             className="block px-3 py-2 text-base font-medium text-[color:var(--foreground)] opacity-80 hover:opacity-100"
             onClick={() => setIsOpen(false)}
           >
