@@ -56,12 +56,12 @@ const DynamicHero = () => {
 
                 <div className="mt-5 md:mt-8 lg:mt-10 flex flex-col sm:flex-row gap-4">
                   <Link href="/#appointment">
-                    <button className="rounded-lg max-w-sm text-md bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-3 text-slate-900 font-semibold shadow-lg shadow-emerald-500/20 transition-all hover:scale-[1.02] hover:shadow-emerald-500/30">
+                    <button className="rounded-lg text-md bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-3 text-slate-900 font-semibold shadow-lg shadow-emerald-500/20 transition-all hover:scale-[1.02] hover:shadow-emerald-500/30 text-center">
                       Start a Project
                     </button>
                   </Link>
                   <Link href="/services">
-                    <button className="rounded-lg max-w-sm border text-md px-6 py-3 transition-colors border-[color:var(--border)] bg-[color:var(--surface)] text-[color:var(--foreground)]/80 hover:opacity-100 hover:bg-[color:var(--hover-surface)]">
+                    <button className="rounded-lg border text-md px-6 py-3 transition-colors border-[color:var(--border)] bg-[color:var(--surface)] text-[color:var(--foreground)]/80 hover:opacity-100 hover:bg-[color:var(--hover-surface)] text-center">
                       Services
                     </button>
                   </Link>
