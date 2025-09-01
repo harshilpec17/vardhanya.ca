@@ -69,7 +69,7 @@ export default function Navbar() {
                 alt="Vardhanya.ca"
                 width={2500}
                 height={80}
-                className="bg-transparent h-20 sm:h-36 w-auto select-none"
+                className="bg-transparent h-20 sm:h-28 w-auto select-none"
               />
             </Link>
           </div>
@@ -79,14 +79,14 @@ export default function Navbar() {
             <div className="ml-10 flex items-center space-x-4">
               <Link
                 href="/"
-                className="relative px-2 py-2 text-md font-medium transition-colors group text-[color:var(--foreground)] opacity-80 hover:opacity-100"
+                className="relative px-2 py-2 text-md text-lg transition-colors group text-[color:var(--foreground)] opacity-80 hover:opacity-100"
               >
                 <span>Home</span>
                 <span className="absolute left-0 -bottom-0.5 h-[2px] w-0 bg-gradient-to-r from-emerald-400 to-cyan-400 transition-all duration-300 group-hover:w-full" />
               </Link>
               <Link
                 href="/services"
-                className="relative px-2 py-2 text-md font-medium transition-colors group text-[color:var(--foreground)] opacity-80 hover:opacity-100"
+                className="relative px-2 py-2 text-md text-lg transition-colors group text-[color:var(--foreground)] opacity-80 hover:opacity-100"
               >
                 <span>Services</span>
                 <span className="absolute left-0 -bottom-0.5 h-[2px] w-0 bg-gradient-to-r from-emerald-400 to-cyan-400 transition-all duration-300 group-hover:w-full" />

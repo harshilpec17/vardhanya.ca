@@ -24,7 +24,7 @@ const DynamicHero = () => {
 
   return (
     <>
-      <div className="relative min-h-[90vh] pt-36 overflow-hidden bg-gradient-to-tr from-black via-emerald-900/30 to-black">
+      <div className="relative min-h-[90vh] pt-24 sm:pt-36 overflow-hidden bg-gradient-to-tr from-black via-emerald-900/30 to-black">
         <section className="flex items-center border-b border-[color:var(--border)] pb-20">
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start min-h-[58vh] md:min-h-[60vh] lg:min-h-[62vh]">
