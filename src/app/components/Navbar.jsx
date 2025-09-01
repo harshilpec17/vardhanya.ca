@@ -50,7 +50,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 py-3 w-full z-50 transition-colors duration-300 border-b ${
+      className={`fixed top-0 py-0 sm:py-3 w-full z-50 transition-colors duration-300 border-b ${
         showSolid
           ? "backdrop-blur-xl shadow-lg bg-[color:var(--surface)] border-[color:var(--border)]"
           : "bg-transparent border-transparent"
@@ -69,7 +69,7 @@ export default function Navbar() {
                 alt="Vardhanya.ca"
                 width={2500}
                 height={80}
-                className="bg-transparent h-36 w-auto select-none"
+                className="bg-transparent h-20 sm:h-36 w-auto select-none"
               />
             </Link>
           </div>
